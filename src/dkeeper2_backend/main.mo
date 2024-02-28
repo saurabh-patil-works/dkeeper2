@@ -1,0 +1,19 @@
+import List "mo:base/List";
+import Debug "mo:base/Debug";
+actor Dkeeper{
+  public type Note = {
+    title: Text;
+    content: Text;
+  };
+
+  var notes: List.List<Note> = List.nil<Note>();
+
+  public func createNote(titleText: Text, content: Text){
+    let newNote: Note = {
+      title = titleText;
+      content = content;
+    };
+    notes :=List.push(newNote, notes);
+    Debug.print(debug_show(notes));
+  };
+};
